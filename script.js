@@ -1,6 +1,5 @@
-const apiKey = '2f5da59c46a7eea14a8062d183c9660a';
-
-async function getWeather() {
+// script.js
+function getWeather() {
     const city = document.getElementById('cityInput').value;
     if (!city) {
         alert('Please enter a city name');
@@ -8,26 +7,31 @@ async function getWeather() {
     }
 
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`);
-        const data = await response.json();
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=2f5da59c46a7eea14a8062d183c9660a`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.cod === '404') {
+                    alert('City not found!');
+                    return;
+                }
 
-        if (data.cod === '404') {
-            alert('City not found!');
-            return;
-        }
+                document.getElementById('cityName').innerText = data.name;
+                document.getElementById('temperature').innerText = `${data.main.temp}°C`;
+                document.getElementById('description').innerText = data.weather[0].description;
+                document.getElementById('humidity').innerText = `Humidity: ${data.main.humidity}%`;
+                document.getElementById('wind').innerText = `Wind Speed: ${data.wind.speed} m/s`;
 
-        document.getElementById('cityName').innerText = data.name;
-        document.getElementById('temperature').innerText = `${data.main.temp}°C`;
-        document.getElementById('description').innerText = data.weather[0].description;
-        document.getElementById('humidity').innerText = `Humidity: ${data.main.humidity}%`;
-        document.getElementById('wind').innerText = `Wind Speed: ${data.wind.speed} m/s`;
+                const icon = data.weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+                console.log('Weather Icon URL:', iconUrl); 
+                document.getElementById('weatherIcon').src = iconUrl;
 
-        const icon = data.weather[0].icon;
-        const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-        console.log('Weather Icon URL:', iconUrl); 
-        document.getElementById('weatherIcon').src = iconUrl;
-
-        changeBackground(data.weather[0].main);
+                changeBackground(data.weather[0].main);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to fetch weather data. Please try again later.');
+            });
     } catch (error) {
         console.error('Error:', error);
         alert('Failed to fetch weather data. Please try again later.');
@@ -47,3 +51,6 @@ function changeBackground(condition) {
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?weather')";
     }
 }
+
+// Export functions using module.exports
+module.exports = { getWeather, changeBackground };
