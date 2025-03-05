@@ -6,7 +6,7 @@ function getWeather() {
         return;
     }
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=2f5da59c46a7eea14a8062d183c9660a}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=2f5da59c46a7eea14a8062d183c9660a`)
         .then(response => response.json())
         .then(data => {
             if (data.cod === '404') {

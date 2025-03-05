@@ -54,7 +54,7 @@ describe('getWeather function', () => {
 
     // Correct the URL comparison
     expect(fetch).toHaveBeenCalledWith(
-      'https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=2f5da59c46a7eea14a8062d183c9660a}'
+      'https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=2f5da59c46a7eea14a8062d183c9660a'
     );
   });
   
