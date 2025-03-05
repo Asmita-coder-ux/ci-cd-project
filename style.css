@@ -15,12 +15,12 @@ body {
     background-size: cover;
     background-position: center;
     transition: 0.5s ease-in-out;
-    background: linear-gradient(135deg, #00b4d8, #90e0ef); /* Colorful gradient */
+    background: linear-gradient(135deg, #0077b6, #48cae4); /* Improved contrast */
 }
 
 h1 {
     font-size: 2.5rem;
-    color: #333; /* Darker color for better readability */
+    color: #222; /* Darker color for better readability */
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -28,7 +28,7 @@ h1 {
 /* Container for weather dashboard */
 .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -47,45 +47,54 @@ input {
     width: 85%;
     margin-bottom: 15px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer; /* Better UX */
 }
 
 /* Input focus effect */
 input:focus {
-    border-color: #00b4d8;
+    border-color: #0077b6;
     outline: none;
+    background: #e0f7fa;
 }
 
 /* Button styling */
 button {
-    background: #4CAF50;
+    background: #0288d1;
     color: white;
     border: none;
     padding: 12px 25px;
     border-radius: 8px;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
+/* Button focus effect for accessibility */
+button:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* Button hover effect */
 button:hover {
-    background: #45a049;
+    background: #0277bd;
     transform: scale(1.05);
 }
 
 /* Weather info section */
 .weather-info {
     margin-top: 20px;
-    color: #333; /* Darker color for better readability */
+    color: #222; /* Improved contrast */
 }
 
 /* City name and weather details */
 h2 {
     font-size: 1.8rem;
     margin: 10px 0;
-    color: #333; /* Darker color for the city name */
+    color: #222;
     text-transform: capitalize;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -93,14 +102,14 @@ h2 {
 h3 {
     font-size: 1.5rem;
     margin: 5px 0;
-    color: #333; /* Darker color for temperature */
+    color: #222;
     font-weight: bold;
 }
 
 p {
     font-size: 1.1rem;
     margin: 5px 0;
-    color: #555; /* Darker color for additional weather details */
+    color: #444;
     font-weight: 500;
 }
 

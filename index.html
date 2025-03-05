@@ -13,12 +13,12 @@
         <button onclick="getWeather()">Get Weather</button>
         
         <div class="weather-info">
-            <h2 id="cityName"></h2>
+            <h2 id="cityName" aria-label="City Name">City Name</h2>
             <img id="weatherIcon" alt="Weather Icon">
-            <h3 id="temperature"></h3>
-            <p id="description"></p>
-            <p id="humidity"></p>
-            <p id="wind"></p>
+            <h3 id="temperature" aria-label="Temperature">--°C</h3>
+            <p id="description" aria-label="Weather Description">Weather description</p>
+            <p id="humidity" aria-label="Humidity">Humidity: --%</p>
+            <p id="wind" aria-label="Wind Speed">Wind Speed: -- m/s</p>
         </div>
     </div>
     <script src="script.js"></script>
